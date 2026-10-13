@@ -79,68 +79,8 @@
 
       <p class="branding">Operado com segurança por <a href="https://assinapdf.com.br" target="_blank" rel="noopener noreferrer">AssinaPDF</a></p>
     </form>
-  </div>
+  </main>
 
-  <script>
-    document.getElementById('cpf').addEventListener('input', function () {
-      this.value = this.value.replace(/\D/g, '');
-    });
-
-    document.getElementById('telefone').addEventListener('input', function () {
-      let v = this.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
-      if (v.length > 6) {
-        this.value = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
-      } else if (v.length > 2) {
-        this.value = '(' + v.slice(0,2) + ') ' + v.slice(2);
-      } else if (v.length > 0) {
-        this.value = '(' + v;
-      }
-    });
-
-    const API_URL = 'proxy.php';
-
-    document.getElementById('cadastroForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const btn = this.querySelector('button');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-
-      const dados = {
-        nomecliente: document.getElementById('nome').value.trim(),
-        cpfcliente: document.getElementById('cpf').value.trim(),
-        enderecocliente: document.getElementById('endereco').value.trim(),
-        cidade: document.getElementById('cidade').value.trim(),
-        telefone: document.getElementById('telefone').value.replace(/\D/g, ''),
-        email: document.getElementById('email').value.trim(),
-        dn: document.getElementById('nascimento').value,
-      };
-
-      try {
-        const resp = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-          },
-          body: JSON.stringify(dados)
-        });
-
-        const json = await resp.json();
-
-        if (resp.ok && json.status === 'success') {
-          alert('Formulário enviado com sucesso!');
-          this.reset();
-        } else {
-          alert('Erro: ' + (json.message || 'Erro ao enviar o formulário.'));
-        }
-      } catch (err) {
-        alert('Erro de conexão com a API. Contacte o suporte.');
-        console.error(err);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Enviar';
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

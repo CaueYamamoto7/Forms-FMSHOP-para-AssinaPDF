@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário FMSHOP</title>
+  <title>Cadastro FMSHOP</title>
+  <meta name="description" content="Cadastro FMSHOP — preencha seus dados com segurança. Ambiente protegido conforme a LGPD.">
   <link rel="icon" type="image/png" href="image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,58 +12,66 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="form-container">
-    <img src="fmshop-removebg-preview.png" alt="Logo" class="logo">
-    <form id="cadastroForm">
+  <main class="form-container">
+    <header class="form-header">
+      <img src="fmshop-removebg-preview.png" alt="FMSHOP" class="logo">
+      <p class="eyebrow">FMSHOP • Criar solicitação</p>
+      <h1>Inicie seu contrato com a FMSHOP</h1>
+    </header>
 
-      <div class="section">
-        <div class="section-title">Dados Pessoais</div>
+    <form id="cadastroForm" novalidate>
+      <div id="formMessage" class="form-message" role="status" aria-live="polite" hidden></div>
+
+      <section class="section" aria-labelledby="sec-pessoais">
+        <h2 class="section-title" id="sec-pessoais"><span class="step" aria-hidden="true">1</span>Dados pessoais</h2>
         <div class="form-group">
-          <label for="nome">Nome Completo (Ignore Acentuações)</label>
-          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Como está no seu documento" autocomplete="name" required>
+          <p class="field-error" id="nome-error" hidden></p>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="Somente números" required>
+            <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" inputmode="numeric" autocomplete="off" aria-describedby="cpf-error" required>
+            <p class="field-error" id="cpf-error" hidden></p>
           </div>
           <div class="form-group">
-            <label for="nascimento">Data de Nascimento</label>
-            <input type="date" id="nascimento" name="nascimento" required>
+            <label for="nascimento">Data de nascimento</label>
+            <input type="date" id="nascimento" name="nascimento" autocomplete="bday" required>
+            <p class="field-error" id="nascimento-error" hidden></p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="divider"></div>
-
-      <div class="section">
-        <div class="section-title">Contato</div>
+      <section class="section" aria-labelledby="sec-contato">
+        <h2 class="section-title" id="sec-contato"><span class="step" aria-hidden="true">2</span>Contato</h2>
         <div class="form-row">
           <div class="form-group">
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+            <label for="telefone">WhatsApp / Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" aria-describedby="telefone-error" required>
+            <p class="field-error" id="telefone-error" hidden></p>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="ex: assinapdf@email.com" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email" aria-describedby="email-error" required>
+            <p class="field-error" id="email-error" hidden></p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="divider"></div>
-
-      <div class="section">
-        <div class="section-title">Endereço</div>
+      <section class="section" aria-labelledby="sec-endereco">
+        <h2 class="section-title" id="sec-endereco"><span class="step" aria-hidden="true">3</span>Endereço</h2>
         <div class="form-group">
-          <label for="endereco">Endereço Completo</label>
-          <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro - Ponto de referência" required>
+          <label for="endereco">Endereço completo</label>
+          <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro e ponto de referência" autocomplete="street-address" required>
+          <p class="field-error" id="endereco-error" hidden></p>
         </div>
         <div class="form-group">
           <label for="cidade">Cidade</label>
-          <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+          <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" autocomplete="address-level2" required>
+          <p class="field-error" id="cidade-error" hidden></p>
         </div>
-      </div>
-      <div class="divider"></div>
+      </section>
 
       <div class="lgpd-section">
         <label for="lgpdConsent">

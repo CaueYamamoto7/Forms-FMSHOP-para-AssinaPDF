@@ -3,7 +3,7 @@
 > Um formulário simples e seguro para iniciar contratos com a FMSHOP via API com AssinaPDF.
 
 <p>
-  <img src="fmshop-removebg-preview.png" alt="Logo FMSHOP" width="180">
+  <img src="/images/fmshop-removebg-preview.png" alt="Logo FMSHOP" width="180">
 </p>
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
